@@ -89,7 +89,7 @@ function buy(id) {
     if (cartProduct) {
         cartProduct.quantity += 1;
     } else {
-        newProduct = {...newProduct, quantity: 1};
+        newProduct = { ...newProduct, quantity: 1 };
         cart.push(newProduct);
     }
 }
@@ -100,8 +100,12 @@ function cleanCart() {
 }
 
 // Exercise 3
-function calculateTotal() {
-    // Calculate total price of the cart using the "cartList" array
+function calculateTotal() {    
+    let total = 0;
+    for (i = 0; i < cart.length; i++) {
+        total = + cart[i].price;
+    }
+    return total;
 }
 
 // Exercise 4
