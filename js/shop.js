@@ -2,7 +2,7 @@
 var products = [
     {
         id: 1,
-        name: 'cooking oil',
+        name: 'Cooking oil',
         price: 10.5,
         type: 'grocery',
         offer: {
@@ -101,10 +101,12 @@ function cleanCart() {
 
 // Exercise 3
 function calculateTotal() {
-    //MAL
     let total = 0;
-    for (i = 0; i < cart.length; i++) {
-        total = + cart[i].price;
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].subtotalWithDiscount) {
+            total += cart[i].subtotalWithDiscount * cart[i].quantity;
+            total += cart[i].price * cart[i].quantity;
+        }
     }
     return total;
 }
@@ -114,15 +116,31 @@ function applyPromotionsCart() {
     let offerProduct = cart.filter(product => product.offer);
     for (i = 0; i < offerProduct.length; i++) {
         if (offerProduct[i].quantity >= offerProduct[i].offer.number) {
-            offerProduct[i].subtotalWithDiscount = offerProduct[i].price / offerProduct[i].offer.percent;
-            offerProduct[i].subtotalWithDiscount = offerProduct[i].price*(1-(offerProduct[i].offer.percent/100));
+            offerProduct[i].subtotalWithDiscount = offerProduct[i].price * (1 - (offerProduct[i].offer.percent / 100)).toFixed(2);
         }
     }
 }
 
 // Exercise 5
 function printCart() {
-    // Fill the shopping cart modal manipulating the shopping cart dom
+    
+    if (cart.length != 0) {
+        applyPromotionsCart()
+        let modal = document.querySelector('#cart_list');
+        let total = document.querySelector('#modal_total');
+        let domItemCart = "";        
+
+        for (i = 0; i < cart.length; i++) {
+            if (cart[i].subtotalWithDiscount) {
+                domItemCart += `<tr><th scope = "row">${cart[i].name}</th><td>$${cart[i].price}</td><td>${cart[i].quantity}</td><td>$${cart[i].subtotalWithDiscount * cart[i].quantity}</td></tr><br>`;                
+            } else {
+                domItemCart += `<tr><th scope = "row">${cart[i].name}</th><td>$${cart[i].price}</td><td>${cart[i].quantity}</td><td>$${cart[i].price * cart[i].quantity}</td></tr><br>`;                
+            }            
+        }
+        modal.innerHTML = domItemCart;
+        let totalPrice = calculateTotal();        
+        total.innerHTML = `Total: $${totalPrice}`;
+    }
 }
 
 
