@@ -100,7 +100,8 @@ function cleanCart() {
 }
 
 // Exercise 3
-function calculateTotal() {    
+function calculateTotal() {
+    //MAL
     let total = 0;
     for (i = 0; i < cart.length; i++) {
         total = + cart[i].price;
@@ -110,7 +111,13 @@ function calculateTotal() {
 
 // Exercise 4
 function applyPromotionsCart() {
-    // Apply promotions to each item in the array "cart"
+    let offerProduct = cart.filter(product => product.offer);
+    for (i = 0; i < offerProduct.length; i++) {
+        if (offerProduct[i].quantity >= offerProduct[i].offer.number) {
+            offerProduct[i].subtotalWithDiscount = offerProduct[i].price / offerProduct[i].offer.percent;
+            offerProduct[i].subtotalWithDiscount = offerProduct[i].price*(1-(offerProduct[i].offer.percent/100));
+        }
+    }
 }
 
 // Exercise 5
