@@ -60,11 +60,11 @@
 	</nav>
 
 	<!-- Header-->
-	<header class="bg-dark py-5">
+	<header class="bg-dark py-5" style="background-image: url('./images/header-bg.jpg'); background-size: cover; background-position: center;">
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="text-center text-white">
 				<h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-				<p class="lead fw-normal text-white-50 mb-0">Get up to 50% off Today Only!</p>
+				<p class="lead fw-normal text-white-80 mb-0">Get up to 50% off Today Only!</p>
 			</div>
 		</div>
 	</header>
@@ -75,7 +75,7 @@
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/oil.jpg" alt="Cooking Oil" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Cooking Oil</h5>
@@ -90,7 +90,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/more-pasta.jpg" alt="Pasta" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Pasta</h5>
@@ -105,7 +105,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/cupcake-mix.jpg" alt="Insatant Cupcake Mixture" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Instant cupcake mixture</h5>
@@ -128,7 +128,7 @@
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/cream.jpg" alt="All-in-1" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">All-in-1</h5>
@@ -143,7 +143,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/makeup-base.jpg" alt="Zero makeup kit" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Zero makeup kit</h5>
@@ -158,7 +158,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/lipstick.jpg" alt="Lip tints" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lip tints</h5>
@@ -181,7 +181,7 @@
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/dress.jpg" alt="Lawn dress" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lawn dress</h5>
@@ -196,7 +196,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/chiffon.jpg" alt="Lawn-chiffon combo" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lawn-chiffon combo</h5>
@@ -211,7 +211,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/baby.jpg" alt="Toddler Frock" />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Toddler Frock</h5>
@@ -230,9 +230,9 @@
 	</section>
 
 	<!-- Footer-->
-	<footer class="py-3 bg-dark">
+	<footer class="py-3 bg-dark" style="background-image: url('./images/header-bg.jpg'); background-size: cover; background-position: center;">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+			<p class="m-0 text-center text-white">Copyright &copy; IT Academy Shop <span id="currentYear"></span></p>
 		</div>
 	</footer>
 
@@ -254,7 +254,7 @@
 								<th scope="col">Total <small>(with discount)</small></th>
 							</tr>
 						</thead>
-						<tbody id="cart_list">							
+						<tbody id="cart_list">
 						</tbody>
 					</table>
 					<div class="text-center fs-3" id="modal_total">
@@ -277,6 +277,12 @@
 	<!-- Core theme JS-->
 	<script src="js/shop.js"></script>
 	<script src="js/checkout.js"></script>
+
+	<!--Get Current Year Script-->
+	<script>
+		let year = new Date().getFullYear();
+		document.getElementById("currentYear").textContent = year;
+	</script>
 </body>
 
 </html>
