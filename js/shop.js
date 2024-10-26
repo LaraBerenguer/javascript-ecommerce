@@ -97,6 +97,11 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
     cart.length = 0;
+    let modal = document.querySelector('#cart_list');
+    let total = document.querySelector('#modal_total');
+    modal.innerHTML = "";
+    total.innerHTML = `Cart is empty`;
+
 }
 
 // Exercise 3
@@ -104,7 +109,8 @@ function calculateTotal() {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].subtotalWithDiscount) {
-            total += cart[i].subtotalWithDiscount * cart[i].quantity;
+            total += cart[i].subtotalWithDiscount * cart[i].quantity;            
+        } else {
             total += cart[i].price * cart[i].quantity;
         }
     }
@@ -116,30 +122,32 @@ function applyPromotionsCart() {
     let offerProduct = cart.filter(product => product.offer);
     for (i = 0; i < offerProduct.length; i++) {
         if (offerProduct[i].quantity >= offerProduct[i].offer.number) {
-            offerProduct[i].subtotalWithDiscount = offerProduct[i].price * (1 - (offerProduct[i].offer.percent / 100)).toFixed(2);
+            offerProduct[i].subtotalWithDiscount = offerProduct[i].price * (1 - (offerProduct[i].offer.percent / 100));
         }
     }
 }
 
 // Exercise 5
 function printCart() {
-    
+
     if (cart.length != 0) {
         applyPromotionsCart()
         let modal = document.querySelector('#cart_list');
         let total = document.querySelector('#modal_total');
-        let domItemCart = "";        
+        let domItemCart = "";
 
         for (i = 0; i < cart.length; i++) {
             if (cart[i].subtotalWithDiscount) {
-                domItemCart += `<tr><th scope = "row">${cart[i].name}</th><td>$${cart[i].price}</td><td>${cart[i].quantity}</td><td>$${cart[i].subtotalWithDiscount * cart[i].quantity}</td></tr><br>`;                
+                domItemCart += `<tr><th scope = "row">${cart[i].name}</th><td>$${cart[i].price}</td><td>${cart[i].quantity}</td><td>$${(cart[i].subtotalWithDiscount * cart[i].quantity).toFixed(2)}</td><td><a class="btn" onclick="removeFromCart(${cart[i].id})"">X</a></td></tr><br>`;
             } else {
-                domItemCart += `<tr><th scope = "row">${cart[i].name}</th><td>$${cart[i].price}</td><td>${cart[i].quantity}</td><td>$${cart[i].price * cart[i].quantity}</td></tr><br>`;                
-            }            
+                domItemCart += `<tr><th scope = "row">${cart[i].name}</th><td>$${cart[i].price}</td><td>${cart[i].quantity}</td><td>$${cart[i].price * cart[i].quantity}</td><td><a class="btn" onclick="removeFromCart(${cart[i].id})"">X</a></td></tr><br>`;
+            }
         }
         modal.innerHTML = domItemCart;
-        let totalPrice = calculateTotal();        
+        let totalPrice = calculateTotal();
         total.innerHTML = `Total: $${totalPrice}`;
+    } else {
+        cleanCart();
     }
 }
 
@@ -148,7 +156,15 @@ function printCart() {
 
 // Exercise 7
 function removeFromCart(id) {
+    let removedProduct = cart.find(product => product.id === id);    
 
+    if (removedProduct.quantity === 1) {
+        cart.pop(removedProduct);        
+    } else {
+        removedProduct.quantity--
+    }
+
+    printCart()
 }
 
 function open_modal() {

@@ -62,7 +62,9 @@ function validate() {
 	//Errors	
 	if (error > 0) {
 		alert("Please fix the errors in the form.");
+		return false;
 	} else {
 		alert("All good! Submiting form.")
+		return true;
 	}
 }
