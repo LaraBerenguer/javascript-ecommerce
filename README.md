@@ -2,7 +2,7 @@
 
 ## 📄 Description
 
-A simple ecommerce page with a functional cart and a cheout page with a form. Built from a pre-made HTML structure. JavaScript functionality has been added. This is a static page.
+A simple ecommerce page with a functional cart and a checkout page with a form. Built from a pre-made HTML structure. JavaScript functionality has been added. This is a static page.
 
 ## 💻 Technologies Used
 
@@ -33,5 +33,5 @@ And in the correct route path run:
 http-server
 ```
 
-🤝 Contributions
+## 🤝 Contributions
 If you want to contribute or report issues, feel free to create an issue or submit a pull request.
