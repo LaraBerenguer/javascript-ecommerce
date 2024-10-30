@@ -27,10 +27,19 @@ npm install
 ```bash
 npm install -g http-server
 ```
-And in the correct route path run:
+In the correct route path, run:
 
 ```bash
 http-server
+```
+
+And then, select in your console the port you would like to use. It will look something like this:
+
+```bash
+Available on:
+  http://10.63.1.79:8080
+  http://127.0.0.1:8080
+
 ```
 
 🤝 Contributions

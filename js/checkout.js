@@ -21,7 +21,7 @@ function validate() {
 	// Validate fields entered by the user: name, phone, password, and email
 	let lettersAndSpace = /[a-zA-Z ]/gm;
 	let numbers = /[0-9]/gm;
-	let numbersAndLetters = /[a-zA-Z0-9]/gm;
+	let numbersAndLetters = /^[a-zA-Z0-9]+$/;
 
 	//Name
 	if (fName.value == "" || fName.value.length < 3 || !fName.value.match(lettersAndSpace)) {
